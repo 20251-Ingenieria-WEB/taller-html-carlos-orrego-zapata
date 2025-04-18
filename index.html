@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PokéFinder</title>
+  <title>PokéFinder PRO</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="light">
   <header>
-    <h1>PokéFinder</h1>
-    <input type="text" id="searchInput" placeholder="Escribe un nombre o ID..." autocomplete="off"/>
-    <div id="autocompleteList" class="autocomplete-list"></div>
-    <button onclick="buscarPokemon()">Buscar</button>
+    <h1>PokéFinder PRO</h1>
+    <div class="theme-toggle">
+      <label for="toggleTema">🌓 Tema:</label>
+      <input type="checkbox" id="toggleTema" />
+    </div>
+    <div class="search-section">
+      <input type="text" id="searchInput" placeholder="Escribe nombre o ID..." autocomplete="off"/>
+      <div id="autocompleteList" class="autocomplete-list"></div>
+      <button onclick="buscarPokemon()">Buscar</button>
+    </div>
   </header>
 
   <section>
@@ -22,6 +28,9 @@
   <section>
     <h2>Buscar por tipo</h2>
     <div class="type-buttons" id="typeButtons"></div>
+    <div class="type-filter">
+      <input type="text" id="filtroGaleria" placeholder="Filtrar en galería..." oninput="filtrarGaleria()" />
+    </div>
   </section>
 
   <section>
@@ -30,6 +39,23 @@
   </section>
 
   <main id="resultado"></main>
+
+  <!-- COMPARACIÓN A LA DERECHA -->
+  <aside class="comparar-lado-derecho">
+    <h3>⚔️ Comparar Pokémon</h3>
+    <input type="text" id="comparar1" placeholder="Pokémon 1" autocomplete="off" />
+    <div id="auto1" class="autocomplete-list"></div>
+    <input type="text" id="comparar2" placeholder="Pokémon 2" autocomplete="off" />
+    <div id="auto2" class="autocomplete-list"></div>
+    <button onclick="compararPokemon()">Comparar</button>
+  </aside>
+
+  <!-- TABLA DE COMPARACIÓN -->
+  <section id="tablaComparacionContainer">
+    <h2>Tabla comparativa</h2>
+    <table id="tablaComparacion"></table>
+  </section>
+
   <script src="script.js"></script>
 </body>
 </html>
