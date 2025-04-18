@@ -25,9 +25,9 @@ button {
 }
 
 img {
-    margin-top: 20px;
-    width: 150px;
-    height: 150px;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
 }
 
 #resultado {
@@ -74,4 +74,33 @@ img {
 
 .autocomplete-list div:hover {
     background-color: #f0f0f0;
+}
+
+.type-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px auto;
+}
+
+.type-buttons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.type-buttons button:hover {
+    background-color: #c0c0c0;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
 }
