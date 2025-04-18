@@ -34,6 +34,20 @@ img {
     margin-top: 20px;
 }
 
+#resultado button {
+    padding: 8px 16px;
+    background-color: #ef5350;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#resultado button:hover {
+    background-color: #d32f2f;
+}
+
 .scroll-list {
     max-height: 200px;
     overflow-y: auto;
