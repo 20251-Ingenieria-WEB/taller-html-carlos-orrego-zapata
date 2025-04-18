@@ -7,7 +7,6 @@ async function buscarPokemon(nombre) {
     const query = nombre || input.value.toLowerCase();
     resultado.innerHTML = "Buscando...";
 
-    // Ocultar galería si está visible
     document.getElementById("galeriaTipo").style.display = "none";
 
     try {
@@ -15,9 +14,14 @@ async function buscarPokemon(nombre) {
         if (!res.ok) throw new Error("Pokémon no encontrado");
 
         const data = await res.json();
+
+        const staticSprite = data.sprites.front_default;
+        const animatedSprite = data?.sprites?.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
+
         resultado.innerHTML = `
             <h2>${data.name.toUpperCase()}</h2>
-            <img src="${data.sprites.front_default}" alt="${data.name}">
+            <img id="pokemonImage" src="${staticSprite}" alt="${data.name}">
+            ${animatedSprite ? `<br><button id="btnAnimar" onclick="mostrarAnimacion('${animatedSprite}')">🎞️ Ver animación</button>` : ""}
             <p><strong>ID:</strong> ${data.id}</p>
             <p><strong>Tipo:</strong> ${data.types.map(t => t.type.name).join(", ")}</p>
             <p><strong>Altura:</strong> ${data.height / 10} m</p>
@@ -27,6 +31,22 @@ async function buscarPokemon(nombre) {
     } catch (error) {
         resultado.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
     }
+}
+
+function mostrarAnimacion(urlAnimado) {
+    const imagen = document.getElementById("pokemonImage");
+    if (imagen) {
+        imagen.src = urlAnimado;
+    }
+    const boton = document.getElementById("btnAnimar");
+    if (boton) {
+        boton.style.display = "none";
+    }
+}
+
+function volverAGaleria() {
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("galeriaTipo").style.display = "flex";
 }
 
 async function cargarTodosLosNombres() {
@@ -124,7 +144,7 @@ async function cargarGaleriaPorTipo(tipo) {
         const data = await res.json();
 
         contenedor.innerHTML = "";
-        const lista = data.pokemon.slice(0, 40); // evitar exceso de peticiones
+        const lista = data.pokemon.slice(0, 40);
 
         for (let item of lista) {
             const resPokemon = await fetch(item.pokemon.url);
@@ -142,11 +162,6 @@ async function cargarGaleriaPorTipo(tipo) {
     } catch (error) {
         contenedor.innerHTML = `<p style="color:red;">Error al cargar el tipo: ${error.message}</p>`;
     }
-}
-
-function volverAGaleria() {
-    document.getElementById("resultado").innerHTML = "";
-    document.getElementById("galeriaTipo").style.display = "flex";
 }
 
 window.onload = () => {
