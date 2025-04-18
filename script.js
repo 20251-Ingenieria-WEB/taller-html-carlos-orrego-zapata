@@ -307,3 +307,20 @@ function filtrarGaleria() {
     card.style.display = nombre.includes(filtro) ? "block" : "none";
   });
 }
+
+// ============================
+// DESCARGA PDF (solo para implementaciones.html)
+// ============================
+function descargarPDF() {
+  const contenedor = document.getElementById("contenido-implementaciones");
+  if (!contenedor) return;
+  const opciones = {
+    margin: 0.5,
+    filename: "implementaciones_pokefinder.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  };
+  html2pdf().set(opciones).from(contenedor).save();
+}
+

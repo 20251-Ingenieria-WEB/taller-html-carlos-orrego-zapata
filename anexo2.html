@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anexo Técnico - PokéFinder PRO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="implementaciones.html" class="boton-volver">🔙 Volver a Implementaciones</a>
+
+  <main class="anexo">
+    <h1>📘 Anexo Técnico Detallado - PokéFinder PRO</h1>
+
+    <section>
+      <h2>🎯 Objetivo del Código JavaScript</h2>
+      <p>El archivo <code>script.js</code> centraliza toda la lógica dinámica del sistema: carga datos desde la PokéAPI, maneja eventos del usuario y construye la representación visual de los resultados. Se han modularizado las funciones según su responsabilidad.</p>
+    </section>
+
+    <section>
+      <h2>🌐 Endpoints Clave Utilizados</h2>
+      <ul>
+        <li><code>https://pokeapi.co/api/v2/pokemon?limit=10000</code><br>→ Carga todos los nombres para autocompletado.</li>
+        <li><code>https://pokeapi.co/api/v2/pokemon/{nombre}</code><br>→ Detalles técnicos de un Pokémon (sprites, stats, habilidades).</li>
+        <li><code>https://pokeapi.co/api/v2/type/{tipo}</code><br>→ Lista de Pokémon agrupados por tipo (fuego, agua, etc.).</li>
+        <li><code>https://pokeapi.co/api/v2/pokemon-species/{nombre}</code><br>→ Para obtener la cadena evolutiva.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📂 Organización de las Funciones</h2>
+      <ul>
+        <li><strong>cargarTodosLosNombres():</strong> inicializa los nombres para autocompletado.</li>
+        <li><strong>setupAutocompletado():</strong> activa sugerencias en tiempo real.</li>
+        <li><strong>buscarPokemon(nombre):</strong> consulta API y muestra detalles del Pokémon.</li>
+        <li><strong>cargarGaleriaPorTipo(tipo):</strong> carga los Pokémon de un tipo específico.</li>
+        <li><strong>filtrarGaleria():</strong> filtra los resultados por texto ingresado.</li>
+        <li><strong>compararPokemon():</strong> genera una comparación paralela entre dos Pokémon.</li>
+        <li><strong>pronunciarNombre(nombre):</strong> usa síntesis de voz nativa.</li>
+        <li><strong>toggleTema():</strong> alterna entre tema claro y oscuro.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧪 Justificación Técnica</h2>
+      <ul>
+        <li><strong>Uso de <code>async/await</code>:</strong> permite escritura más limpia y comprensible para operaciones asíncronas como fetch.</li>
+        <li><strong>Uso de <code>Promise.all()</code>:</strong> se aplica en la comparación de dos Pokémon para hacer llamadas paralelas a la API y aumentar la eficiencia.</li>
+        <li><strong>Renderizado dinámico con <code>document.createElement()</code>:</strong> permite construir interfaces reactivas sin recargar la página.</li>
+        <li><strong>SpeechSynthesis API:</strong> lectura natural del nombre del Pokémon sin depender de librerías externas.</li>
+        <li><strong>Verificación de sprites animados:</strong> se accede a una ruta específica dentro del JSON para obtener animaciones opcionales si están disponibles.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚙️ Carga inicial automática</h2>
+      <pre><code>window.onload = () => {
+  cargarTodosLosNombres();
+  generarBotonesTipos();
+  setupAutocompletado("searchInput", buscarPokemon);
+};</code></pre>
+      <p>→ Se asegura que toda la interfaz esté lista y funcional sin intervención del usuario.</p>
+    </section>
+
+    <section>
+      <h2>🧠 Flujo General del Sistema</h2>
+      <ol>
+        <li>El usuario ingresa texto o selecciona tipo.</li>
+        <li>El sistema detecta el evento (<code>input</code>, <code>click</code>).</li>
+        <li>Se llama la función correspondiente (<code>buscarPokemon</code>, <code>cargarGaleriaPorTipo</code>...).</li>
+        <li>Se realiza un fetch a la PokéAPI.</li>
+        <li>La respuesta se transforma a JSON y se renderiza en el DOM.</li>
+        <li>El usuario puede realizar nuevas búsquedas, comparar o cambiar el tema.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

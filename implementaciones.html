@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementaciones - PokéFinder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <a href="index.html" class="boton-home">🏠 Inicio</a>
+  <a href="ayuda.html" class="boton-volver">🔙 Volver a Ayuda</a>
+  <button onclick="descargarPDF()" class="boton-descarga">📄 Descargar PDF</button>
+  <a href="anexo2.html" class="boton-anexo">📘 Ver Anexo Técnico</a>
+
+  <header>
+    <h1>🛠️ Exposición Técnica: PokéFinder PRO</h1>
+  </header>
+
+  <main id="contenido-implementaciones" class="implementaciones">
+    <section>
+      <h2>📌 Objetivo del Proyecto</h2>
+      <p>PokéFinder PRO es una aplicación web interactiva diseñada para explorar
+        información detallada sobre Pokémon, basada en la <strong>PokéAPI</strong>. Permite búsquedas avanzadas,
+        visualización de estadísticas, comparación, animaciones, síntesis de voz y cambio de tema visual.
+      </p>
+    </section>
+
+    <section>
+      <h2>🧱 Tecnologías Utilizadas</h2>
+      <ul>
+        <li><strong>HTML5:</strong> Estructura semántica y accesible.</li>
+        <li><strong>CSS3:</strong> Estilos responsivos, temas claro/oscuro, efectos interactivos.</li>
+        <li><strong>JavaScript (ES6):</strong> Fetch API, async/await, DOM, eventos, condiciones dinámicas.</li>
+        <li><strong>PokéAPI:</strong> API RESTful gratuita con +1000 Pokémon.</li>
+        <li><strong>SpeechSynthesis API:</strong> Lectura por voz en navegador.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔍 Funcionalidades Implementadas</h2>
+      <p><strong>Selecciona una funcionalidad para ver su explicación detallada:</strong></p>
+      <div class="selector-funcionalidad">
+        <label><input type="radio" name="funcSeleccionada" value="f1" checked /> 1. Carga dinámica de nombres</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f2" /> 2. Autocompletado inteligente</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f3" /> 3. Ficha técnica de un Pokémon</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f4" /> 4. Galería por tipo</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f5" /> 5. Filtro dentro de la galería</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f6" /> 6. Comparación entre Pokémon</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f7" /> 7. Síntesis de voz</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f8" /> 8. Sprite animado</label><br>
+        <label><input type="radio" name="funcSeleccionada" value="f9" /> 9. Tema claro / oscuro</label><br>
+      </div>
+      <button class="boton-explicacion" onclick="mostrarExplicacionSeleccionada()">🧠 Ver explicación detallada</button>
+    </section>
+
+    <section>
+      <h2>📐 Organización del Código</h2>
+      <ul>
+        <li><strong>index.html:</strong> estructura del sitio, inputs, botones, secciones.</li>
+        <li><strong>style.css:</strong> diseño visual del tema, botones, lista, tabla.</li>
+        <li><strong>script.js:</strong> funciones para cargar API, manejar eventos y renderizar datos dinámicamente.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📈 Escalabilidad y mejoras futuras</h2>
+      <ul>
+        <li>Filtro por generación o región</li>
+        <li>Mostrar habilidades ocultas</li>
+        <li>Modo historia por evolución</li>
+        <li>Historial de búsqueda</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎓 Conclusión</h2>
+      <p>
+        Este proyecto demuestra el potencial de una app frontend modular y autónoma, desarrollada con tecnologías nativas del navegador. Es escalable y adecuada como proyecto académico evaluativo.
+      </p>
+    </section>
+  </main>
+
+  <div id="modalExplicacion" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <h3 id="modalTitulo">Explicación técnica</h3>
+      <div id="explicacionContenido"></div>
+    </div>
+  </div>
+
+  <script>
+    const explicaciones = {
+      f1: [
+        ["const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000');", "→ Se obtiene la lista completa de Pokémon desde la API."],
+        ["const data = await res.json();", "→ Se transforma la respuesta a formato JSON."],
+        ["allPokemonNames = data.results.map((p) => p.name);", "→ Se extraen y guardan solo los nombres."],
+        ["allPokemonNames.forEach((name) => { ... });", "→ Se recorren y muestran los nombres en una lista en la página."]
+      ],
+      f2: [
+        ["input.addEventListener('input', () => { ... });", "→ Detecta cuando el usuario escribe."],
+        ["const matches = allPokemonNames.filter(...).slice(0, 10);", "→ Filtra los primeros 10 Pokémon que coincidan con lo escrito."],
+        ["div.onclick = () => { ... };", "→ Al hacer clic en una sugerencia, se autocompleta el campo."]
+      ],
+      f3: [
+        ["const res = await fetch(...);", "→ Consulta los datos del Pokémon por nombre o ID."],
+        ["const habilidades = data.abilities.map(...);", "→ Extrae los nombres de las habilidades."],
+        ["const stats = data.stats.map(...);", "→ Muestra las estadísticas en formato visual."]
+      ],
+      f4: [
+        ["const res = await fetch(`https://pokeapi.co/api/v2/type/${tipo}`);", "→ Obtiene los Pokémon del tipo seleccionado."],
+        ["for (let item of lista) { ... }", "→ Se muestran los sprites y nombres de los primeros 40 Pokémon del tipo."]
+      ],
+      f5: [
+        ["const filtro = document.getElementById(...).value.toLowerCase();", "→ Toma el texto ingresado para filtrar."],
+        ["card.style.display = nombre.includes(filtro) ? 'block' : 'none';", "→ Oculta o muestra cartas según el filtro."]
+      ],
+      f6: [
+        ["const [res1, res2] = await Promise.all([...]);", "→ Consulta los datos de dos Pokémon al tiempo."],
+        ["mostrarTablaComparacion(data1, data2);", "→ Compara visualmente atributos clave."]
+      ],
+      f7: [
+        ["const msg = new SpeechSynthesisUtterance(nombre);", "→ Crea el objeto para síntesis de voz."],
+        ["speechSynthesis.speak(msg);", "→ Reproduce el nombre con voz."]
+      ],
+      f8: [
+        ["const animatedSprite = data.sprites.versions[...];", "→ Verifica si existe un sprite animado."],
+        ["botonAnimacion.onclick = () => { ... }", "→ Cambia el sprite estático por el animado."]
+      ],
+      f9: [
+        ["body.classList.toggle('dark');", "→ Cambia entre modo oscuro y claro."],
+        ["body.classList.toggle('light');", "→ Alterna las clases de tema."]
+      ]
+    };
+
+    function mostrarExplicacionSeleccionada() {
+      const seleccionada = document.querySelector('input[name="funcSeleccionada"]:checked').value;
+      const modal = document.getElementById("modalExplicacion");
+      const contenido = document.getElementById("explicacionContenido");
+      const titulo = document.getElementById("modalTitulo");
+      const explicacion = explicaciones[seleccionada];
+
+      titulo.textContent = "Funcionalidad " + seleccionada.slice(-1);
+      contenido.innerHTML = explicacion.map(([codigo, texto]) =>
+        `<div class="linea-codigo"><code>${codigo}</code><span>${texto}</span></div>`
+      ).join("");
+
+      modal.style.display = "block";
+    }
+
+    function cerrarModal() {
+      document.getElementById("modalExplicacion").style.display = "none";
+    }
+
+    function descargarPDF() {
+      const contenedor = document.getElementById("contenido-implementaciones");
+
+      const bloqueExtra = document.createElement("section");
+      bloqueExtra.id = "explicaciones-en-pdf";
+      bloqueExtra.innerHTML = `<h2>📄 Anexo: Explicaciones línea por línea</h2>` +
+        Object.keys(explicaciones).map((key) => {
+          const titulo = `<h3>Funcionalidad ${key.slice(-1)}</h3>`;
+          const contenido = explicaciones[key].map(
+            ([codigo, texto]) => `<div class="linea-codigo"><code>${codigo}</code><span>${texto}</span></div>`
+          ).join("");
+          return titulo + contenido;
+        }).join("");
+
+      contenedor.appendChild(bloqueExtra);
+
+      const opciones = {
+        margin: 0.5,
+        filename: 'implementaciones_pokefinder.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opciones).from(contenedor).save().then(() => {
+        bloqueExtra.remove();
+      });
+    }
+  </script>
+</body>
+</html>

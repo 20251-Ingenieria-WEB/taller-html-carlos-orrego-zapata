@@ -1,248 +1,353 @@
 /* ==== MODO CLARO / OSCURO ==== */
 body.light {
-    background-color: #f9f9f9;
-    color: #222;
-  }
-  body.dark {
-    background-color: #121212;
-    color: #eee;
-  }
-  body.dark input,
-  body.dark select,
-  body.dark button {
-    background-color: #1e1e1e;
-    color: #eee;
-    border: 1px solid #444;
-  }
-  
-  /* ==== GENERAL ==== */
-  body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 30px auto;
-    max-width: 1200px;
-  }
-  
-  h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-  }
-  
-  header {
-    margin-bottom: 20px;
-  }
-  
-  .search-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    font-size: 1em;
-    width: 250px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border: none;
-    background-color: #ef5350;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.2s;
-  }
-  
-  button:hover {
-    background-color: #d32f2f;
-  }
-  
-  img {
-    margin-top: 10px;
-    width: 100px;
-    height: 100px;
-  }
-  
-  /* ==== AUTOCOMPLETADO ==== */
-  .autocomplete-list {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    width: 250px;
-    max-height: 150px;
-    overflow-y: auto;
-    z-index: 1000;
-    margin-top: -5px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .autocomplete-list div {
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .autocomplete-list div:hover {
-    background-color: #f0f0f0;
-  }
-  
-  /* ==== LISTA DE NOMBRES ==== */
-  .scroll-list {
-    max-height: 200px;
-    overflow-y: auto;
-    padding: 0;
-    list-style: none;
-    border: 1px solid #ccc;
-    margin: 20px auto;
-    width: 300px;
-    text-align: left;
-  }
-  
-  .scroll-list li {
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .scroll-list li:hover {
-    background-color: #eee;
-  }
-  
-  /* ==== BOTONES POR TIPO ==== */
-  .type-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin: 10px auto;
-  }
-  
-  .type-buttons button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    color: #222;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .type-buttons button:hover {
-    background-color: #c0c0c0;
-  }
-  
-  .type-filter input {
-    padding: 8px;
-    margin: 10px;
-    width: 250px;
-  }
-  
-  /* ==== GALERÍA ==== */
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-  }
-  
-  .gallery div {
-    width: 120px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 10px;
-    background-color: #fff;
-    transition: transform 0.2s;
-  }
-  
-  .gallery div:hover {
-    transform: scale(1.05);
-    background-color: #f4f4f4;
-  }
-  
-  /* ==== FICHA DETALLE ==== */
-  #resultado {
-    margin-top: 20px;
-  }
-  
-  #resultado img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  #resultado button {
-    margin-top: 10px;
-    background-color: #42a5f5;
-  }
-  
-  #resultado button:hover {
-    background-color: #1e88e5;
-  }
-  
-  .stats-bar {
-    margin: 6px 0;
-    text-align: left;
-  }
-  
-  .stats-bar span {
-    display: inline-block;
-    width: 80px;
-    font-weight: bold;
-  }
-  
-  .stats-bar .bar {
-    display: inline-block;
-    height: 10px;
-    background-color: #66bb6a;
-    vertical-align: middle;
-  }
-  
-  /* ==== COMPARACIÓN LATERAL ==== */
-  .comparar-lado-derecho {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 30px;
-  }
-  
-  .comparar-lado-derecho input {
-    width: 200px;
-  }
-  
-  .comparar-lado-derecho .autocomplete-list {
-    position: relative;
-    width: 200px;
-    margin: 0 auto;
-  }
-  
-  /* ==== TABLA COMPARATIVA ==== */
-  #tablaComparacionContainer {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  #tablaComparacion {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  #tablaComparacion th,
-  #tablaComparacion td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    background-color: #fff;
-  }
-  
-  body.dark #tablaComparacion th,
-  body.dark #tablaComparacion td {
-    background-color: #2a2a2a;
-  }
-  
+  background-color: #f9f9f9;
+  color: #222;
+}
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+body.dark input,
+body.dark select,
+body.dark button {
+  background-color: #1e1e1e;
+  color: #eee;
+  border: 1px solid #444;
+}
+
+/* ==== GENERAL ==== */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 30px auto;
+  max-width: 1200px;
+}
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+header {
+  margin-bottom: 20px;
+}
+.search-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+  border: 1px solid #ccc;
+}
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  background-color: #ef5350;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+button:hover {
+  background-color: #d32f2f;
+}
+img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+/* ==== BOTÓN DE AYUDA ==== */
+.boton-ayuda {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #2196F3;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+.boton-ayuda:hover {
+  background-color: #1565c0;
+}
+
+/* ==== BOTÓN DESCARGA PDF ==== */
+.boton-descarga {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  z-index: 999;
+  padding: 8px 14px;
+  border: none;
+  background: #673ab7;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.boton-descarga:hover {
+  background-color: #512da8;
+}
+
+/* ==== AUTOCOMPLETADO ==== */
+.autocomplete-list {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 250px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: -5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.autocomplete-list div {
+  padding: 8px;
+  cursor: pointer;
+}
+.autocomplete-list div:hover {
+  background-color: #f0f0f0;
+}
+
+/* ==== LISTA ==== */
+.scroll-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  width: 300px;
+  text-align: left;
+}
+.scroll-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.scroll-list li:hover {
+  background-color: #eee;
+}
+
+/* ==== BOTONES DE TIPO ==== */
+.type-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px auto;
+}
+.type-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #222;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.type-buttons button:hover {
+  background-color: #c0c0c0;
+}
+.type-filter input {
+  padding: 8px;
+  margin: 10px;
+  width: 250px;
+}
+
+/* ==== GALERÍA ==== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.gallery div {
+  width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+.gallery div:hover {
+  transform: scale(1.05);
+  background-color: #f4f4f4;
+}
+
+/* ==== FICHA ==== */
+#resultado {
+  margin-top: 20px;
+}
+#resultado img {
+  width: 150px;
+  height: 150px;
+}
+#resultado button {
+  margin-top: 10px;
+  background-color: #42a5f5;
+}
+#resultado button:hover {
+  background-color: #1e88e5;
+}
+.stats-bar {
+  margin: 6px 0;
+  text-align: left;
+}
+.stats-bar span {
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+}
+.stats-bar .bar {
+  display: inline-block;
+  height: 10px;
+  background-color: #66bb6a;
+  vertical-align: middle;
+}
+
+/* ==== COMPARACIÓN ==== */
+.comparar-lado-derecho {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.comparar-lado-derecho input {
+  width: 200px;
+}
+.comparar-lado-derecho .autocomplete-list {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* ==== TABLA DE COMPARACIÓN ==== */
+#tablaComparacionContainer {
+  margin-top: 40px;
+  text-align: center;
+}
+#tablaComparacion {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#tablaComparacion th,
+#tablaComparacion td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fff;
+}
+body.dark #tablaComparacion th,
+body.dark #tablaComparacion td {
+  background-color: #2a2a2a;
+}
+
+/* ==== PÁGINAS DE AYUDA E IMPLEMENTACIONES ==== */
+.manual-usuario, .implementaciones {
+  text-align: left;
+  max-width: 800px;
+  margin: 30px auto;
+  font-size: 1.1em;
+}
+.manual-usuario ul, .implementaciones ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 5px;
+}
+.boton-volver {
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  background-color: #ff9800;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 999;
+}
+.boton-volver:hover {
+  background-color: #e65100;
+}
+
+/* ==== NUEVAS IMPLEMENTACIONES ==== */
+.boton-explicacion {
+  margin: 10px 0;
+  padding: 10px 16px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.boton-explicacion:hover {
+  background-color: #00796b;
+}
+.selector-funcionalidad {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+.modal-contenido {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+}
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.cerrar:hover {
+  color: red;
+}
+.boton-anexo {
+  position: fixed;
+  top: 130px;
+  left: 10px;
+  background-color: #009688;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 999;
+}
+.boton-anexo:hover {
+  background-color: #00796b;
+}
