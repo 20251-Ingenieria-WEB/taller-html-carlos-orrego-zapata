@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -16,6 +15,7 @@ input[type="text"] {
     font-size: 1em;
     width: 250px;
     margin-right: 10px;
+    position: relative;
 }
 
 button {
@@ -32,4 +32,46 @@ img {
 
 #resultado {
     margin-top: 20px;
+}
+
+.scroll-list {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    width: 300px;
+    text-align: left;
+}
+
+.scroll-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.scroll-list li:hover {
+    background-color: #eee;
+}
+
+.autocomplete-list {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 250px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    margin-top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.autocomplete-list div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.autocomplete-list div:hover {
+    background-color: #f0f0f0;
 }

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,9 +9,16 @@
 <body>
   <header>
     <h1>PokéFinder</h1>
-    <input type="text" id="searchInput" placeholder="Escribe un nombre o ID..."/>
+    <input type="text" id="searchInput" placeholder="Escribe un nombre o ID..." autocomplete="off"/>
+    <div id="autocompleteList" class="autocomplete-list"></div>
     <button onclick="buscarPokemon()">Buscar</button>
   </header>
+
+  <section>
+    <h2>Selecciona un Pokémon:</h2>
+    <ul id="pokemonList" class="scroll-list"></ul>
+  </section>
+
   <main id="resultado"></main>
   <script src="script.js"></script>
 </body>
